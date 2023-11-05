@@ -15,7 +15,7 @@ export async function fetchRevenue() {
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
 
   try {
-    // Artificially delay a reponse for demo purposes.
+    // Artificially delay a response for demo purposes.
     // Don't do this in real life :)
 
     // console.log('Fetching revenue data...');
@@ -90,7 +90,7 @@ export async function fetchCardData() {
 const ITEMS_PER_PAGE = 6;
 export async function fetchFilteredInvoices(
   query: string,
-  currentPage: number,
+  currentPage: number
 ) {
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
