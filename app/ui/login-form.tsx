@@ -28,7 +28,7 @@ export default function LoginForm() {
             <Label htmlFor="email">Email</Label>
             <div className="relative">
               <Input
-                className="peer pl-10 py-5"
+                className="peer pl-10 py-5 placeholder:text-xs"
                 id="email"
                 type="email"
                 name="email"
@@ -43,7 +43,7 @@ export default function LoginForm() {
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <Input
-                className="peer pl-10 py-5"
+                className="peer pl-10 py-5 placeholder:text-xs"
                 id="password"
                 type="password"
                 name="password"
