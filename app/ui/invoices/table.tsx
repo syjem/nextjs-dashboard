@@ -1,8 +1,12 @@
-import Image from 'next/image';
-import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
 import InvoiceStatus from '@/app/ui/invoices/status';
-import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredInvoices } from '@/app/lib/data';
+import { UpdateInvoice, DeleteInvoice } from '@/app/ui/invoices/buttons';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import {
+  formatDateToLocal,
+  formatCurrency,
+  generateFallback,
+} from '@/app/lib/utils';
 
 export default async function InvoicesTable({
   query,
@@ -21,19 +25,20 @@ export default async function InvoicesTable({
             {invoices?.map((invoice) => (
               <div
                 key={invoice.id}
-                className="mb-2 w-full rounded-md bg-white p-4"
-              >
+                className="mb-2 w-full rounded-md bg-white p-4">
                 <div className="flex items-center justify-between border-b pb-4">
                   <div>
-                    <div className="mb-2 flex items-center">
-                      <Image
-                        src={invoice.image_url}
-                        className="mr-2 rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
-                      <p>{invoice.name}</p>
+                    <div className="mb-2 flex items-center gap-2">
+                      <Avatar>
+                        <AvatarImage
+                          src={invoice.image_url}
+                          alt={`${invoice.name}'s profile picture`}
+                        />
+                        <AvatarFallback>
+                          {generateFallback(invoice.name)}
+                        </AvatarFallback>
+                      </Avatar>
+                      <p className="font-normal">{invoice.name}</p>
                     </div>
                     <p className="text-sm text-gray-500">{invoice.email}</p>
                   </div>
@@ -81,17 +86,18 @@ export default async function InvoicesTable({
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg"
-                >
+                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
-                      <Image
-                        src={invoice.image_url}
-                        className="rounded-full"
-                        width={28}
-                        height={28}
-                        alt={`${invoice.name}'s profile picture`}
-                      />
+                      <Avatar>
+                        <AvatarImage
+                          src={invoice.image_url}
+                          alt={`${invoice.name}'s profile picture`}
+                        />
+                        <AvatarFallback>
+                          {generateFallback(invoice.name)}
+                        </AvatarFallback>
+                      </Avatar>
                       <p>{invoice.name}</p>
                     </div>
                   </td>
