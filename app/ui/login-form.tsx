@@ -10,12 +10,26 @@ import {
   ArrowRight,
   AtSign,
   AlertCircle,
+  Eye,
+  EyeOff,
   Loader2,
   LockKeyhole,
 } from 'lucide-react';
+import { useState } from 'react';
+
+const eyeIcons =
+  'absolute right-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200';
+
+const inputIcons =
+  'pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200';
 
 export default function LoginForm() {
   const [code, action] = useFormState(authenticate, undefined);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+  const showPasswordHandler = () => {
+    setIsPasswordVisible(!isPasswordVisible);
+  };
 
   return (
     <form action={action} className="space-y-3 shadow-xl">
@@ -36,7 +50,7 @@ export default function LoginForm() {
                 required
                 autoComplete="off"
               />
-              <AtSign className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200" />
+              <AtSign className={inputIcons} />
             </div>
           </div>
           <div className="mt-4 flex flex-col gap-3">
@@ -45,13 +59,18 @@ export default function LoginForm() {
               <Input
                 className="peer pl-10 py-5 placeholder:text-xs"
                 id="password"
-                type="password"
+                type={!isPasswordVisible ? 'password' : 'text'}
                 name="password"
                 placeholder="Enter password"
                 required
                 minLength={6}
               />
-              <LockKeyhole className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200" />
+              <LockKeyhole className={inputIcons} />
+              {isPasswordVisible ? (
+                <EyeOff className={eyeIcons} onClick={showPasswordHandler} />
+              ) : (
+                <Eye className={eyeIcons} onClick={showPasswordHandler} />
+              )}
             </div>
           </div>
         </div>
