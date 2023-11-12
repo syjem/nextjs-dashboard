@@ -1,5 +1,5 @@
-import LoginForm from '@/app/ui/login-form';
 import { Metadata } from 'next';
+import LoginForm from '@/app/ui/login-form';
 
 export const metadata: Metadata = {
   title: 'Login | Acme Dashboard',
