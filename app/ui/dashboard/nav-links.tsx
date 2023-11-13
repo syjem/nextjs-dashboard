@@ -1,24 +1,19 @@
 'use client';
 
-import {
-  UserGroupIcon,
-  HomeIcon,
-  DocumentDuplicateIcon,
-} from '@heroicons/react/24/outline';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import Link from 'next/link';
+import { Files, Users } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { HomeIcon } from '@radix-ui/react-icons';
 
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
     name: 'Invoices',
     href: '/dashboard/invoices',
-    icon: DocumentDuplicateIcon,
+    icon: Files,
   },
-  { name: 'Customers', href: '/dashboard/customers', icon: UserGroupIcon },
+  { name: 'Customers', href: '/dashboard/customers', icon: Users },
 ];
 
 export default function NavLinks() {
@@ -32,12 +27,13 @@ export default function NavLinks() {
             key={link.name}
             href={link.href}
             className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
+              'flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm text-slate-400 font-medium  hover:text-slate-800 dark:hover:text-slate-200 md:flex-none md:justify-start md:p-2 md:px-3',
               {
-                'bg-sky-100 text-blue-600': pathname === link.href,
+                'bg-green-200 dark:bg-slate-900 text-slate-700 dark:text-slate-200':
+                  pathname === link.href,
               }
             )}>
-            <LinkIcon className="w-6" />
+            <LinkIcon className="w-5 h-5" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );

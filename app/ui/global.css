@@ -16,3 +16,11 @@ input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+.eye-icons {
+  @apply absolute right-3 top-1/2 h-[35px] w-[35px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200 cursor-pointer p-2 rounded-lg;
+}
+
+.input-icons {
+  @apply pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-slate-900 dark:peer-focus:text-slate-200;
+}
