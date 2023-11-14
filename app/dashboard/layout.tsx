@@ -4,10 +4,10 @@ import SideNav from '@/app/ui/dashboard/sidenav';
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex h-screen flex-col md:flex-row max-w-[1440px] mx-auto">
-      <div className="w-full flex-none md:w-64 shadow-md dark:shadow-xl border-r dark:border-slate-800">
+      <aside className="bg-slate-50 bg-opacity-80 md:bg-opacity-100 dark:bg-slate-950 w-full sticky md:static top-0 flex-none md:w-64 z-10 shadow-md dark:shadow-xl border-r dark:border-slate-800">
         <SideNav />
-      </div>
-      <div className="flex-grow p-6 md:px-12 md:py-6">{children}</div>
+      </aside>
+      <main className="flex-grow p-4 md:px-12 md:py-6">{children}</main>
     </div>
   );
 };

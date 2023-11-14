@@ -1,3 +1,5 @@
+import { Skeleton } from '@/components/ui/skeleton';
+
 // Loading animation
 const shimmer =
   'before:absolute before:inset-0 before:-translate-x-full before:animate-[shimmer_2s_infinite] before:bg-gradient-to-r before:from-transparent before:via-white/60 before:to-transparent';
@@ -210,6 +212,15 @@ export function InvoicesTableSkeleton() {
           </table>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function UserSkeleton() {
+  return (
+    <div className="flex gap-4">
+      <Skeleton className="rounded-full w-[30px] h-[30px]" />
+      <Skeleton className="w-12 h-4" />
     </div>
   );
 }

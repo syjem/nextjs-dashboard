@@ -34,7 +34,7 @@ export default function DashboardPage() {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
             <Card className="col-span-4">
               <CardHeader className="p-4">
-                <CardTitle>Overview</CardTitle>
+                <CardTitle className="text-lg pl-2">Overview</CardTitle>
               </CardHeader>
               <CardContent className="pl-2">
                 <Suspense fallback={<RevenueChartSkeleton />}>
@@ -42,9 +42,9 @@ export default function DashboardPage() {
                 </Suspense>
               </CardContent>
             </Card>
-            <Card className="col-span-3">
+            <Card className="col-span-4 lg:col-span-3">
               <CardHeader className="p-4">
-                <CardTitle>Recent Invoices</CardTitle>
+                <CardTitle className="text-lg pl-2">Recent Invoices</CardTitle>
               </CardHeader>
               <CardContent>
                 <Suspense fallback={<LatestInvoicesSkeleton />}>

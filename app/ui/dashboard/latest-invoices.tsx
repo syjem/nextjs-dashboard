@@ -22,11 +22,8 @@ export default async function LatestInvoices() {
                 }
               )}>
               <div className="flex items-center gap-4">
-                <Avatar>
-                  <AvatarImage
-                    src={invoice.image_url}
-                    alt={`${invoice.name}'s profile picture`}
-                  />
+                <Avatar className="h-8 w-8">
+                  <AvatarImage src={invoice.image_url} alt={invoice.name} />
                   <AvatarFallback>
                     {generateFallback(invoice.name)}
                   </AvatarFallback>
@@ -48,7 +45,7 @@ export default async function LatestInvoices() {
           );
         })}
       </div>
-      <div className="flex items-center pb-2 pt-2">
+      <div className="flex items-center pb-2 pt-3">
         <RefreshCw className="h-5 w-5 text-gray-500" />
         <h3 className="ml-2 text-sm text-gray-500 ">Updated just now</h3>
       </div>
