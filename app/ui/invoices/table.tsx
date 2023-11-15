@@ -20,21 +20,21 @@ export default async function InvoicesTable({
   return (
     <div className="mt-6 flow-root">
       <div className="inline-block min-w-full align-middle">
-        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+        <div className="rounded-lg bg-slate-50 dark:bg-slate-900 p-2 md:pt-0 border border-slate-200 dark:border-slate-800">
           <div className="md:hidden">
             {invoices?.map((invoice) => (
               <div
                 key={invoice.id}
-                className="mb-2 w-full rounded-md bg-white p-4">
-                <div className="flex items-center justify-between border-b pb-4">
+                className="mb-2 w-full rounded-md bg-slate-50 dark:bg-slate-900 p-4">
+                <div className="flex items-center justify-between border-b dark:border-slate-800 pb-4">
                   <div>
                     <div className="mb-2 flex items-center gap-2">
-                      <Avatar>
+                      <Avatar className="w-8 h-8">
                         <AvatarImage
                           src={invoice.image_url}
-                          alt={`${invoice.name}'s profile picture`}
+                          alt={invoice.name}
                         />
-                        <AvatarFallback>
+                        <AvatarFallback className="text-xs">
                           {generateFallback(invoice.name)}
                         </AvatarFallback>
                       </Avatar>
@@ -46,10 +46,10 @@ export default async function InvoicesTable({
                 </div>
                 <div className="flex w-full items-center justify-between pt-4">
                   <div>
-                    <p className="text-xl font-medium">
+                    <p className="text-sm font-medium">
                       {formatCurrency(invoice.amount)}
                     </p>
-                    <p>{formatDateToLocal(invoice.date)}</p>
+                    <p className="text-xs">{formatDateToLocal(invoice.date)}</p>
                   </div>
                   <div className="flex justify-end gap-2">
                     <UpdateInvoice id={invoice.id} />
@@ -59,7 +59,7 @@ export default async function InvoicesTable({
               </div>
             ))}
           </div>
-          <table className="hidden min-w-full text-gray-900 md:table">
+          <table className="hidden min-w-full text-slate-950 dark:text-slate-200 md:table">
             <thead className="rounded-lg text-left text-sm font-normal">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
@@ -82,17 +82,17 @@ export default async function InvoicesTable({
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white">
+            <tbody className="bg-slate-50 dark:bg-slate-900">
               {invoices?.map((invoice) => (
                 <tr
                   key={invoice.id}
-                  className="w-full border-b py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
+                  className="w-full border-b dark:border-slate-700 py-3 text-sm last-of-type:border-none [&:first-child>td:first-child]:rounded-tl-lg [&:first-child>td:last-child]:rounded-tr-lg [&:last-child>td:first-child]:rounded-bl-lg [&:last-child>td:last-child]:rounded-br-lg">
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">
                     <div className="flex items-center gap-3">
                       <Avatar>
                         <AvatarImage
                           src={invoice.image_url}
-                          alt={`${invoice.name}'s profile picture`}
+                          alt={invoice.name}
                         />
                         <AvatarFallback>
                           {generateFallback(invoice.name)}
@@ -110,7 +110,7 @@ export default async function InvoicesTable({
                   <td className="whitespace-nowrap px-3 py-3">
                     {formatDateToLocal(invoice.date)}
                   </td>
-                  <td className="whitespace-nowrap px-3 py-3">
+                  <td className="whitespace-nowrap text-center pr-5 py-3">
                     <InvoiceStatus status={invoice.status} />
                   </td>
                   <td className="whitespace-nowrap py-3 pl-6 pr-3">

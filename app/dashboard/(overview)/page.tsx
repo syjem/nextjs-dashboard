@@ -32,16 +32,10 @@ export default function DashboardPage() {
             </Suspense>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-            <Card className="col-span-4">
-              <CardHeader className="p-4">
-                <CardTitle className="text-lg pl-2">Overview</CardTitle>
-              </CardHeader>
-              <CardContent className="pl-2">
-                <Suspense fallback={<RevenueChartSkeleton />}>
-                  <RevenueChart />
-                </Suspense>
-              </CardContent>
-            </Card>
+            <Suspense fallback={<RevenueChartSkeleton />}>
+              <RevenueChart />
+            </Suspense>
+
             <Card className="col-span-4 lg:col-span-3">
               <CardHeader className="p-4">
                 <CardTitle className="text-lg pl-2">Recent Invoices</CardTitle>

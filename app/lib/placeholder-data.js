@@ -3,9 +3,10 @@
 const users = [
   {
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'User',
-    email: 'user@nextmail.com',
-    password: '123456',
+    name: 'Jemuel Repoylo',
+    email: 'jem@nextmail.com',
+    password: 'next-jem-2000',
+    image_url: 'https://avatars.githubusercontent.com/u/119649793?v=4',
   },
 ];
 

@@ -24,7 +24,7 @@ export default async function LatestInvoices() {
               <div className="flex items-center gap-4">
                 <Avatar className="h-8 w-8">
                   <AvatarImage src={invoice.image_url} alt={invoice.name} />
-                  <AvatarFallback>
+                  <AvatarFallback className="text-xs">
                     {generateFallback(invoice.name)}
                   </AvatarFallback>
                 </Avatar>

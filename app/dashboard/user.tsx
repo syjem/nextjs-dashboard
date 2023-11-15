@@ -1,11 +1,11 @@
 import React from 'react';
 import { getUser } from '@/app/lib/data';
 import { generateFallback } from '@/app/lib/utils';
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { ModeToggle } from '@/components/mode-toggle';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const User = async () => {
-  const user = await getUser('user_jem@nextmail.com');
+  const user = await getUser('jem@nextmail.com');
   const initials = generateFallback(user.name);
   const firstName = user.name.split(' ')[0];
 
@@ -14,9 +14,11 @@ const User = async () => {
       <div className="flex items-center gap-2">
         <Avatar className="w-8 h-8">
           <AvatarImage src={user.image_url} alt={user.name} />
-          <AvatarFallback>{initials}</AvatarFallback>
+          <AvatarFallback className="text-xs">{initials}</AvatarFallback>
         </Avatar>
-        <span className="font-semibold text-base">{firstName}</span>
+        <span className="font-semibold text-base text-slate-700 dark:text-slate-300">
+          {firstName}
+        </span>
       </div>
       <ModeToggle />
     </div>
