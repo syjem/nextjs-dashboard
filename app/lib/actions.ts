@@ -1,9 +1,9 @@
 'use server';
 import { z } from 'zod';
-import { sql } from '@vercel/postgres';
-import { revalidatePath } from 'next/cache';
-import { redirect } from 'next/navigation';
 import { signIn } from '@/auth';
+import { sql } from '@vercel/postgres';
+import { redirect } from 'next/navigation';
+import { revalidatePath } from 'next/cache';
 
 const InvoiceSchema = z.object({
   id: z.string(),
@@ -43,6 +43,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
     return {
       errors: validatedFields.error.flatten().fieldErrors,
       message: 'Missing Fields. Failed to Create Invoice.',
+      isSuccess: false,
     };
   }
 

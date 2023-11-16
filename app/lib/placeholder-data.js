@@ -1,12 +1,10 @@
-// This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
-// https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
   {
-    id: '410544b2-4001-4271-9855-fec4b6a6442a',
-    name: 'Jemuel Repoylo',
-    email: 'jem@nextmail.com',
-    password: 'next-jem-2000',
-    image_url: 'https://avatars.githubusercontent.com/u/119649793?v=4',
+    id: process.env.USER_ID,
+    name: process.env.USER_NAME,
+    email: process.env.USER_EMAIL,
+    password: process.env.USER_PASSWORD,
+    image_url: process.env.USER_IMAGE_URL,
   },
 ];
 

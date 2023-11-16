@@ -1,10 +1,8 @@
 import { Suspense } from 'react';
-import { signOut } from '@/auth';
-import { LogOut } from 'lucide-react';
 import User from '@/app/dashboard/user';
-import { Button } from '@/components/ui/button';
 import { UserSkeleton } from '@/app/ui/skeletons';
 import NavLinks from '@/app/ui/dashboard/nav-links';
+import { SignOutDialog } from '@/components/sign-out-dialog';
 
 export default function SideNav() {
   return (
@@ -18,21 +16,7 @@ export default function SideNav() {
         <div className="flex w-full items-center space-x-2 md:flex-col md:items-start md:space-x-0 md:space-y-2">
           <NavLinks />
         </div>
-        <div>
-          <form
-            action={async () => {
-              'use server';
-              await signOut();
-            }}>
-            <Button
-              variant="ghost"
-              type="submit"
-              className="flex gap-2 dark:text-slate-400 dark:hover:bg-transparent">
-              <LogOut className="w-5 h-5" />
-              <span className="hidden md:block">Sign Out</span>
-            </Button>
-          </form>
-        </div>
+        <SignOutDialog />
       </section>
     </div>
   );

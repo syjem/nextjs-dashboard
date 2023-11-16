@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
+import { lusitana } from '@/app/ui/fonts';
+import { generateFallback } from '@/app/lib/utils';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { CustomersTable, FormattedCustomersTable } from '@/app/lib/definitions';
 
 export default async function CustomersTable({
@@ -22,21 +24,19 @@ export default async function CustomersTable({
                 {customers?.map((customer) => (
                   <div
                     key={customer.id}
-                    className="mb-2 w-full rounded-md bg-white p-4"
-                  >
+                    className="mb-2 w-full rounded-md bg-white p-4">
                     <div className="flex items-center justify-between border-b pb-4">
                       <div>
                         <div className="mb-2 flex items-center">
-                          <div className="flex items-center gap-3">
-                            <Image
+                          <Avatar className="w-8 h-8">
+                            <AvatarImage
                               src={customer.image_url}
-                              className="rounded-full"
-                              alt={`${customer.name}'s profile picture`}
-                              width={28}
-                              height={28}
+                              alt={customer.name}
                             />
-                            <p>{customer.name}</p>
-                          </div>
+                            <AvatarFallback className="text-xs">
+                              {generateFallback(customer.name)}
+                            </AvatarFallback>
+                          </Avatar>
                         </div>
                         <p className="text-sm text-gray-500">
                           {customer.email}
@@ -85,13 +85,15 @@ export default async function CustomersTable({
                     <tr key={customer.id} className="group">
                       <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
                         <div className="flex items-center gap-3">
-                          <Image
-                            src={customer.image_url}
-                            className="rounded-full"
-                            alt={`${customer.name}'s profile picture`}
-                            width={28}
-                            height={28}
-                          />
+                          <Avatar>
+                            <AvatarImage
+                              src={customer.image_url}
+                              alt={customer.name}
+                            />
+                            <AvatarFallback>
+                              {generateFallback(customer.name)}
+                            </AvatarFallback>
+                          </Avatar>
                           <p>{customer.name}</p>
                         </div>
                       </td>

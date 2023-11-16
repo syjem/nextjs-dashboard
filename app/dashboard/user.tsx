@@ -5,7 +5,8 @@ import { ModeToggle } from '@/components/mode-toggle';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const User = async () => {
-  const user = await getUser('jem@nextmail.com');
+  const user_email = process.env.USER_EMAIL as string;
+  const user = await getUser(user_email);
   const initials = generateFallback(user.name);
   const firstName = user.name.split(' ')[0];
 

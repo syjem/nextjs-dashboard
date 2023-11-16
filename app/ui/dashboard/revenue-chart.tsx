@@ -3,7 +3,6 @@ import { generateYAxis } from '@/app/lib/utils';
 import { CalendarIcon } from '@radix-ui/react-icons';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-
 export default async function RevenueChart() {
   const revenue = await fetchRevenue();
 

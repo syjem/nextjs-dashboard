@@ -60,7 +60,7 @@ export default async function InvoicesTable({
             ))}
           </div>
           <table className="hidden min-w-full text-slate-950 dark:text-slate-200 md:table">
-            <thead className="rounded-lg text-left text-sm font-normal">
+            <thead className="rounded-lg text-left text-sm font-normal border-b dark:border-slate-700">
               <tr>
                 <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
                   Customer

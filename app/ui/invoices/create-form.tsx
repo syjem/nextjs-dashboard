@@ -11,11 +11,12 @@ import { CustomerField } from '@/app/lib/definitions';
 import { CircleDollarSign, UserCircle } from 'lucide-react';
 
 export default function Form({ customers }: { customers: CustomerField[] }) {
-  const initialState = { message: null, errors: {} };
+  const initialState = { message: null, errors: {}, isSuccess: true };
   const [state, dispatch] = useFormState(createInvoice, initialState);
+
   return (
     <form action={dispatch}>
-      <div className="rounded-md bg-slate-200 dark:bg-slate-900 p-4 md:p-6 md:py-8 max-w-[500px] mx-auto md:mx-0">
+      <div className="rounded-md border border-slate-300 dark:border-slate-700 bg-slate-100 dark:bg-slate-900 p-4 md:p-6 md:py-8 max-w-[500px] mx-auto md:mx-0">
         {/* Customer Name */}
         <div className="mb-4">
           <Label htmlFor="customer" className="inline-block mb-3">
@@ -36,7 +37,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                 </option>
               ))}
             </select>
-            <UserCircle className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500" />
+            <UserCircle className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-500" />
           </div>
           {state.errors?.customerId ? (
             <div
