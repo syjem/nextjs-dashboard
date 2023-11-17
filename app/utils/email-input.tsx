@@ -3,7 +3,7 @@ import { usePathname } from 'next/navigation';
 
 const EmailInput = () => {
   const pathname = usePathname();
-  
+
   return (
     <Input
       className="peer pl-10 py-5 placeholder:text-xs focus:border-slate-400 dark:focus:border-slate-600"
@@ -11,7 +11,7 @@ const EmailInput = () => {
       type="email"
       name="email"
       required
-      autoFocus={pathname === '/login' ? true : false}
+      autoFocus={pathname === '/sign-up' ? false : true}
       autoComplete="off"
       placeholder="Enter your email address"
     />

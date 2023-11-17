@@ -30,8 +30,8 @@ export default function LoginForm() {
   };
 
   return (
-    <form action={action} className="space-y-3 shadow-xl">
-      <div className="flex flex-col gap-6 flex-1 rounded-lg border-slate-400 dark:border-slate-800 bg-slate-300 dark:bg-slate-900 p-8">
+    <form action={action} className="space-y-3">
+      <div className="flex flex-col gap-6 flex-1 shadow-xl rounded-lg border border-slate-400 dark:border-slate-800 bg-slate-300 dark:bg-slate-900 p-8">
         <h1 className={`${lusitana.className} text-2xl text-center my-4`}>
           Please log in to continue...
         </h1>
@@ -72,7 +72,7 @@ export default function LoginForm() {
               )}
             </div>
             <div>
-              <Link href="/password-reset" className="flex ml-auto w-fit">
+              <Link href="/forgot-password" className="flex ml-auto w-fit">
                 <span className="text-sm dark:text-slate-300 hover:underline">
                   Forgot password?
                 </span>

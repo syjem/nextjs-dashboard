@@ -47,7 +47,7 @@ export function Cards({
           )}
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{value}</div>
+          <div className="text-base md:text-xl font-bold">{value}</div>
         </CardContent>
       </Card>
     </>

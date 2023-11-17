@@ -2,6 +2,7 @@ import React from 'react';
 import { getUser } from '@/app/lib/data';
 import { generateFallback } from '@/app/lib/utils';
 import { ModeToggle } from '@/components/mode-toggle';
+import { SignOutDialog } from '@/components/sign-out-dialog';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const User = async () => {
@@ -21,7 +22,12 @@ const User = async () => {
           {firstName}
         </span>
       </div>
-      <ModeToggle />
+      <div className="flex items-center">
+        <ModeToggle />
+        <div className="block md:hidden">
+          <SignOutDialog />
+        </div>
+      </div>
     </div>
   );
 };

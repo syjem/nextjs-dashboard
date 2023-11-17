@@ -21,7 +21,7 @@ export default function NavLinks() {
   return (
     <>
       <nav className="w-full">
-        <ul className="flex md:flex-col w-full grow items-center md:items-start gap-2">
+        <ul className="flex w-full max-w-[400px] md:max-w-full mx-auto md:flex-col grow items-center md:items-start gap-2">
           {links.map((link) => {
             const LinkIcon = link.icon;
             return (
@@ -31,9 +31,9 @@ export default function NavLinks() {
                 <Link
                   href={link.href}
                   className={clsx(
-                    'flex h-[48px] w-full grow items-center justify-center gap-2 rounded-md p-3 text-sm text-slate-500 dark:text-slate-400 font-medium  hover:text-slate-900 dark:hover:text-slate-200 md:flex-none md:justify-start md:p-2 md:px-3',
+                    'flex h-[48px] w-full grow items-center justify-center gap-2 rounded-sm p-3 text-sm text-slate-500 dark:text-slate-400 font-medium hover:text-slate-900 dark:hover:text-zinc-200 md:flex-none md:justify-start md:p-2 md:px-3',
                     {
-                      'bg-slate-200 dark:bg-slate-900 text-slate-900 dark:text-slate-200 font-semibold':
+                      'bg-transparent rounded-none md:rounded-sm border-b-[3px] md:border-none border-red-400 md:dark:bg-slate-900 text-slate-900 dark:text-zinc-200 font-semibold':
                         pathname === link.href,
                     }
                   )}>

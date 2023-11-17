@@ -16,7 +16,9 @@ export default function SideNav() {
         <div className="flex w-full items-center space-x-2 md:flex-col md:items-start md:space-x-0 md:space-y-2">
           <NavLinks />
         </div>
-        <SignOutDialog />
+        <div className="hidden md:block">
+          <SignOutDialog />
+        </div>
       </section>
     </div>
   );

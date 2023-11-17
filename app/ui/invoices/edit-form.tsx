@@ -61,7 +61,7 @@ export default function EditInvoiceForm({
 
         {/* Invoice Amount */}
         <div className="mb-4">
-          <Label htmlFor="amount">Choose an amount</Label>
+          <Label htmlFor="amount">Enter amount</Label>
           <div className="relative mt-2 rounded-md">
             <div className="relative">
               <Input

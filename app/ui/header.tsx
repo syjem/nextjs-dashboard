@@ -9,9 +9,9 @@ const Header = () => {
   return (
     <header className="bg-slate-100 dark:bg-slate-950 shadow-md border-b-[1px] dark:border-slate-900 py-4 px-6 md:px-20">
       <nav className="flex justify-between">
-        <div>
+        <Link href="/">
           <Image src={favicon} width={30} height={30} alt="Logo" />
-        </div>
+        </Link>
         <ul className="flex items-center gap-6">
           <li>
             <Link href="/dashboard" className={`${lusitana.className}`}>

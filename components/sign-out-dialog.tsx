@@ -19,7 +19,7 @@ export function SignOutDialog() {
         <Button
           variant="ghost"
           type="button"
-          className="flex gap-2 dark:text-slate-400 dark:hover:bg-transparent">
+          className="flex gap-2 text-slate-800 dark:text-slate-200 dark:hover:bg-transparent">
           <LogOut className="w-5 h-5" />
           <span className="hidden md:block">Sign Out</span>
         </Button>
