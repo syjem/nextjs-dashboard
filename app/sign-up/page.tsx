@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import SignUpForm from '@/app/ui/sign-up-form';
 
 export const metadata: Metadata = {
-  title: 'Sign Up | Acme Dashboard',
+  title: 'Sign Up | Next Dashboard',
 };
 
 const Page = () => {

@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import LoginForm from '@/app/ui/login-form';
 
 export const metadata: Metadata = {
-  title: 'Login | Acme Dashboard',
+  title: 'Login | Next Dashboard',
 };
 
 export default function LoginPage() {

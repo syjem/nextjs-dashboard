@@ -31,7 +31,7 @@ export default function LoginForm() {
 
   return (
     <form action={action} className="space-y-3 shadow-xl">
-      <div className="flex flex-col gap-6 flex-1 rounded-lg border-slate-400 dark:border-slate-800 bg-slate-200 dark:bg-slate-900 p-8">
+      <div className="flex flex-col gap-6 flex-1 rounded-lg border-slate-400 dark:border-slate-800 bg-slate-300 dark:bg-slate-900 p-8">
         <h1 className={`${lusitana.className} text-2xl text-center my-4`}>
           Please log in to continue...
         </h1>
