@@ -4,11 +4,13 @@ import { MutableRefObject } from 'react';
 type PasswordInputProps = {
   passwordRef: MutableRefObject<HTMLInputElement | null>;
   isPasswordVisible: boolean;
+  passwordValue?: string;
 };
 
 const PasswordInput = ({
   passwordRef,
   isPasswordVisible,
+  passwordValue,
 }: PasswordInputProps) => {
   return (
     <Input
@@ -19,6 +21,7 @@ const PasswordInput = ({
       name="password"
       placeholder="Enter password"
       required
+      defaultValue={passwordValue}
       minLength={6}
     />
   );

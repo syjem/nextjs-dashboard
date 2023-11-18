@@ -6,8 +6,7 @@ import { SignOutDialog } from '@/components/sign-out-dialog';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const User = async () => {
-  const user_email = process.env.USER_EMAIL as string;
-  const user = await getUser(user_email);
+  const user = await getUser('team@vercel.com');
   const initials = generateFallback(user.name);
   const firstName = user.name.split(' ')[0];
 

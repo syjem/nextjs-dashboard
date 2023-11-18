@@ -13,7 +13,7 @@ export default function Page() {
         <div className="flex flex-col gap-6 rounded-lg px-6 py-10 md:w-2/5 md:px-20">
           <p
             className={`${lusitana.className} md:pt-16 text-xl text-slate-950 dark:text-slate-100 md:text-3xl md:leading-normal`}>
-            <strong>Welcome to Acme.</strong> This is the example for the{' '}
+            <strong>NextJS Dashboard.</strong> This is the example for the{' '}
             <a
               href="https://nextjs.org/learn/"
               target="_blank"

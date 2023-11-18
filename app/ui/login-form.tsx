@@ -9,9 +9,18 @@ import { authenticate } from '@/app/lib/actions';
 import EmailInput from '@/app/utils/email-input';
 import SubmitButton from '@/app/utils/submit-button';
 import PasswordInput from '@/app/utils/password-input';
-import { AtSign, AlertCircle, Eye, EyeOff, LockKeyhole } from 'lucide-react';
+import {
+  AtSign,
+  AlertCircle,
+  Eye,
+  EyeOff,
+  LockKeyhole,
+  ExternalLink,
+} from 'lucide-react';
 
 export default function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [code, action] = useFormState(authenticate, undefined);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const passwordRef = useRef<HTMLInputElement | null>(null);
@@ -29,6 +38,11 @@ export default function LoginForm() {
     }
   };
 
+  const populateFields = () => {
+    setEmail('team@vercel.com');
+    setPassword('vercel-team-2023');
+  };
+
   return (
     <form action={action} className="space-y-3">
       <div className="flex flex-col gap-6 flex-1 shadow-xl rounded-lg border border-slate-400 dark:border-slate-800 bg-slate-300 dark:bg-slate-900 p-8">
@@ -36,10 +50,12 @@ export default function LoginForm() {
           Please log in to continue...
         </h1>
         <div className="w-full">
-          <div className="flex flex-col gap-3">
-            <Label htmlFor="email">Email</Label>
+          <div className="relative flex flex-col gap-3">
+            <Label htmlFor="email" className="inline-block w-fit">
+              Email
+            </Label>
             <div className="relative">
-              <EmailInput />
+              <EmailInput email={email} />
               <AtSign className="input-icons" />
             </div>
           </div>
@@ -47,6 +63,7 @@ export default function LoginForm() {
             <Label htmlFor="password">Password</Label>
             <div className="relative">
               <PasswordInput
+                passwordValue={password}
                 passwordRef={passwordRef}
                 isPasswordVisible={isPasswordVisible}
               />
@@ -71,7 +88,15 @@ export default function LoginForm() {
                 />
               )}
             </div>
-            <div>
+            <div className="flex items-center justify-between">
+              {code === 'CredentialSignin' && (
+                <div className="flex items-center gap-2">
+                  <AlertCircle className="h-4 w-4 text-red-500" />
+                  <p aria-live="polite" className="text-xs text-red-500">
+                    Invalid credentials.
+                  </p>
+                </div>
+              )}
               <Link href="/forgot-password" className="flex ml-auto w-fit">
                 <span className="text-sm dark:text-slate-300 hover:underline">
                   Forgot password?
@@ -89,17 +114,15 @@ export default function LoginForm() {
             </span>
           </Link>
         </div>
-        <div className="flex h-8 items-end space-x-1">
-          {code === 'CredentialSignin' && (
-            <div className="flex items-center gap-2">
-              <AlertCircle className="h-6 w-6 text-red-500" />
-              <p aria-live="polite" className="text-sm text-red-500">
-                Invalid credentials. <br /> Please check your email and
-                password.
-              </p>
-            </div>
-          )}
-        </div>
+        {!email && !password && (
+          <div
+            onClick={populateFields}
+            title="Example credentials"
+            className="mt-2 flex justify-center gap-1 cursor-pointer underline text-red-600 dark:text-blue-600">
+            <span className="text-xs">Use example credentials</span>
+            <ExternalLink className="w-4 h-4" />
+          </div>
+        )}
       </div>
     </form>
   );

@@ -6,6 +6,13 @@ const users = [
     password: process.env.USER_PASSWORD,
     image_url: process.env.USER_IMAGE_URL,
   },
+  {
+    id: '669c0507f84f46252d1b5fd9de884826',
+    name: 'Vercel Team',
+    email: 'team@vercel.com',
+    password: 'vercel-team-2023',
+    image_url: 'https://avatars.githubusercontent.com/u/14985020?s=200&v=4',
+  },
 ];
 
 const customers = [

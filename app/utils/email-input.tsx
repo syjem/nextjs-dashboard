@@ -1,7 +1,7 @@
 import { Input } from '@/components/ui/input';
 import { usePathname } from 'next/navigation';
 
-const EmailInput = () => {
+const EmailInput = ({ email }: { email?: string }) => {
   const pathname = usePathname();
 
   return (
@@ -11,6 +11,7 @@ const EmailInput = () => {
       type="email"
       name="email"
       required
+      defaultValue={email}
       autoFocus={pathname === '/sign-up' ? false : true}
       autoComplete="off"
       placeholder="Enter your email address"
