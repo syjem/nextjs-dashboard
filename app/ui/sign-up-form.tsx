@@ -29,7 +29,7 @@ export default function SignUpForm() {
 
   return (
     <form className="space-y-3">
-      <div className="flex flex-col shadow-xl gap-6 flex-1 rounded-lg border border-slate-400 dark:border-slate-800 bg-slate-300 dark:bg-slate-900 p-8">
+      <div className="flex flex-col shadow-xl gap-6 flex-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent dark:transparent p-8">
         <h1 className={`${lusitana.className} text-2xl text-center my-4`}>
           Please sign up to continue...
         </h1>
