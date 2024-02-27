@@ -9,6 +9,7 @@ import EmailInput from '@/app/utils/email-input';
 import SubmitButton from '@/app/utils/submit-button';
 import PasswordInput from '@/app/utils/password-input';
 import { AtSign, Eye, EyeOff, LockKeyhole, User } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 export default function SignUpForm() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -30,7 +31,7 @@ export default function SignUpForm() {
   return (
     <form className="space-y-3">
       <div className="flex flex-col shadow-xl gap-6 flex-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent dark:transparent p-8">
-        <h1 className={`${lusitana.className} text-2xl text-center my-4`}>
+        <h1 className={cn('text-2xl text-center my-4', lusitana.className)}>
           Please sign up to continue...
         </h1>
         <div className="w-full">
@@ -78,7 +79,7 @@ export default function SignUpForm() {
             </div>
           </div>
         </div>
-        <SubmitButton text="Sign up" />
+        <SubmitButton text="Sign up" action="Signing up" />
         <div className="flex items-center ml-auto w-fit text-sm gap-1 text-slate-600 dark:text-slate-400">
           Already have an account?
           <Link href="/login">

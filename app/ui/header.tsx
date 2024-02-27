@@ -14,7 +14,7 @@ const Header = () => {
         </Link>
         <ul className="flex items-center gap-6">
           <li>
-            <Link href="/dashboard" className={`${lusitana.className}`}>
+            <Link href="/dashboard" className={lusitana.className}>
               Dashboard
             </Link>
           </li>

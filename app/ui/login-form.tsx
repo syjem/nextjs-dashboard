@@ -5,7 +5,6 @@ import { useState, useRef } from 'react';
 import { useFormState } from 'react-dom';
 import { lusitana } from '@/app/ui/fonts';
 import { Label } from '@/components/ui/label';
-import { authenticate } from '@/app/lib/actions';
 import EmailInput from '@/app/utils/email-input';
 import SubmitButton from '@/app/utils/submit-button';
 import PasswordInput from '@/app/utils/password-input';
@@ -17,11 +16,14 @@ import {
   LockKeyhole,
   ExternalLink,
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { signInAuth } from '@/actions/sign-in';
 
 export default function LoginForm() {
+  const [code, action] = useFormState(signInAuth, undefined);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [code, action] = useFormState(authenticate, undefined);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const passwordRef = useRef<HTMLInputElement | null>(null);
 
@@ -46,7 +48,7 @@ export default function LoginForm() {
   return (
     <form action={action} className="space-y-3">
       <div className="flex flex-col gap-6 flex-1 shadow-xl rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent dark:bg-transparent p-8">
-        <h1 className={`${lusitana.className} text-2xl text-center my-4`}>
+        <h1 className={cn('text-2xl text-center my-4', lusitana.className)}>
           Please log in to continue...
         </h1>
         <div className="w-full">
@@ -105,7 +107,7 @@ export default function LoginForm() {
             </div>
           </div>
         </div>
-        <SubmitButton text="Log in" />
+        <SubmitButton text="Log in" action="Logging in" />
         <div className="flex items-center ml-auto w-fit text-sm gap-1 text-slate-600 dark:text-slate-400">
           Don&apos;t have an account?
           <Link href="/sign-up">

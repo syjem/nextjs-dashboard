@@ -6,12 +6,13 @@ import { lusitana } from '@/app/ui/fonts';
 import { Label } from '@/components/ui/label';
 import EmailInput from '@/app/utils/email-input';
 import SubmitButton from '@/app/utils/submit-button';
+import { cn } from '@/lib/utils';
 
 export default function ForgotPasswordForm() {
   return (
     <form className="space-y-3">
       <div className="flex flex-col shadow-xl gap-6 flex-1 rounded-lg border border-slate-200 dark:border-slate-800 bg-transparent dark:transparent p-8">
-        <h1 className={`${lusitana.className} text-2xl text-center`}>
+        <h1 className={cn('text-2xl text-center', lusitana.className)}>
           Request a new password...
         </h1>
         <div className="mt-2 flex flex-col gap-3">

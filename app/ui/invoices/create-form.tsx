@@ -5,7 +5,7 @@ import { useFormState } from 'react-dom';
 import { Label } from '@/components/ui/label';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import { createInvoice } from '@/app/lib/actions';
+import { createInvoice } from '@/actions/create-invoices';
 import { ClockIcon } from '@radix-ui/react-icons';
 import { CustomerField } from '@/app/lib/definitions';
 import { CircleDollarSign, UserCircle } from 'lucide-react';

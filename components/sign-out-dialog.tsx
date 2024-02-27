@@ -1,4 +1,3 @@
-import { signOut } from '@/auth';
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -11,6 +10,7 @@ import {
 } from '@/components/ui/alert-dialog';
 import { LogOut } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { signOutAction } from '@/actions/sign-out';
 
 export function SignOutDialog() {
   return (
@@ -27,7 +27,7 @@ export function SignOutDialog() {
       <AlertDialogContent>
         <AlertDialogHeader>
           <AlertDialogTitle className="text-left text-base sm:text-lg">
-            Are you sure you want to sign-out?
+            Are you sure you want to sign out?
           </AlertDialogTitle>
           <AlertDialogDescription className="text-left">
             Please confirm your action.
@@ -37,15 +37,11 @@ export function SignOutDialog() {
           <AlertDialogCancel className="border-slate-300">
             Cancel
           </AlertDialogCancel>
-          <form
-            action={async () => {
-              'use server';
-              await signOut();
-            }}>
+          <form action={signOutAction}>
             <Button
               type="submit"
               className="font-semibold bg-[#e01c47] hover:bg-[#ee093a] text-slate-100 dark:bg-[#e01c47] dark:hover:bg-[#ee093a] dark:text-slate-100">
-              Confirm
+              Sign out
             </Button>
           </form>
         </AlertDialogFooter>

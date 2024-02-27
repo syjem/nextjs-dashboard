@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { deleteInvoice } from '@/app/lib/actions';
+import { deleteInvoice } from '@/actions/delete-invoice';
 import { Pencil1Icon, PlusIcon, TrashIcon } from '@radix-ui/react-icons';
 
 export function CreateInvoice() {
